@@ -1,0 +1,77 @@
+﻿@page "/jsonBeautifier"
+@using System.Text.Json
+@using System.Text.Unicode
+@using System.Text.Encodings.Web
+@using Shared
+@inject IAnalytics Analytics
+@using Microsoft.AspNetCore.Components.Web.Extensions.Head
+
+<Meta Property="description" Content="Fundamental tooling for day to day web dev tasks - JSON beautifier" />
+<Meta Property="keywords" Content="json, beutifier, json beautifier, beautify json" />
+<Title Value="WebDevTool.eu - JSON beautifier"></Title>
+<div class="content-container-div">
+    <h1>JSON beautifier</h1>
+
+    <h3>Input</h3>
+<textarea id="tbInputJson" @bind="inputJson" accept-charset="UTF-8" rows="10" class="resize-both w-100"></textarea>
+    <br />
+    <CollapsibleCard CardHeaderTitle="Advanced settings">
+        <CardBody>
+            <input id="settingsIntended" type="checkbox" @bind="settingsIntended" /> <label for="settingsIntended">Intended</label><br />
+            <input id="settingsAllowTrailingCommas" type="checkbox" @bind="settingsAllowTrailingCommas" /> <label for="settingsAllowTrailingCommas">Allow trailing commas</label><br />
+            <input id="settingsSkipComments" type="checkbox" @bind="settingsSkipComments" /> <label for="settingsSkipComments">Skip comments</label><br />
+            <label>Max depth</label> <input type="number" @bind="settingsMaxDepth" min="0" max="64" />
+        </CardBody>
+    </CollapsibleCard>
+    <h3>Result</h3>
+<textarea id="tbInputJson" @bind="resultJson" accept-charset="UTF-8" rows="10" class="resize-both w-100"></textarea>
+    <br />
+    <button id="btBeautify" class="btn btn-primary" @onclick="btBeautify_onclick">Beautify</button>
+</div>
+
+
+@code {
+    private string inputJson = "";
+    private string resultJson = "";
+
+    private bool settingsIntended = true;
+    private bool settingsAllowTrailingCommas = true;
+    private bool settingsSkipComments = true;
+    private int settingsMaxDepth = 64;
+
+    private async Task btBeautify_onclick()
+    {
+        if (!string.IsNullOrEmpty(inputJson))
+        {
+            try
+            {
+                resultJson = JsonSerializer.Serialize(JsonSerializer.Deserialize<object>(
+                    inputJson,
+                    new JsonSerializerOptions
+                    {
+                        AllowTrailingCommas = settingsAllowTrailingCommas,
+                        ReadCommentHandling = settingsSkipComments ? JsonCommentHandling.Skip : JsonCommentHandling.Allow,
+                        MaxDepth = settingsMaxDepth,
+                    }
+                ),
+                    new JsonSerializerOptions
+                    {
+                        WriteIndented = settingsIntended,
+                        Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
+                    });
+            }
+            catch (Exception)
+            {
+
+                resultJson = "Couldn't serialize provided JSON!";
+            }
+        }
+        else
+        {
+            resultJson = "Input cannot be empty!";
+        }
+
+
+       await Analytics.TrackEvent("JsonBeautify", inputJson.Length);
+    }
+}

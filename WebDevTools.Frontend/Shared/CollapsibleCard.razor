@@ -1,0 +1,32 @@
+﻿@*https://stackoverflow.com/questions/65661179/how-to-use-bootstrap-collapse-in-blazor-app*@
+@using Microsoft.AspNetCore.Components
+
+<div class="pb-3">
+    <div class="card">
+        <div class="card-header" style="cursor: pointer;" @onclick="Toggle">
+            <button class="btn btn-link" style="color: black; text-decoration: none" >
+                <b>@CardHeaderTitle</b>
+            </button>
+            @CardHeader
+        </div>
+        @if (ShowCardBody)
+        {
+            <div class="card-body">
+                @CardBody
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter] public RenderFragment CardBody { get; set; }
+    [Parameter] public RenderFragment CardHeader { get; set; }
+    [Parameter] public string CardHeaderTitle { get; set; }
+
+
+    [Parameter] public bool ShowCardBody { get; set; } = false;
+    public void Toggle()
+    {
+        ShowCardBody = !ShowCardBody;
+    }
+}

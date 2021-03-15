@@ -1,0 +1,75 @@
+﻿@page "/guidGenerator"
+@using System.Text;
+@inject IAnalytics Analytics
+
+@using Microsoft.AspNetCore.Components.Web.Extensions.Head
+<Meta Property="description" Content="Fundamental tooling for day to day web dev tasks - Generate GUID" />
+<Meta Property="keywords" Content="guid, GUID, guid generator, batch, guid batch generator, generate guid" />
+<Title Value="WebDevTool.eu - Guid generator"></Title>
+
+<div class="content-container-div">
+    <h1>Guid generator</h1>
+    <h3>How many do you want to generate?</h3>
+    <input id="iNumberOfGuids" @bind="guidCountToGenerate" type="number" min="1" max="100" />
+    <br />
+    <br />
+    <CollapsibleCard CardHeaderTitle="Advanced settings">
+        <CardBody>
+            <p>Separator</p>
+            <input checked="checked" id="@newLineSeparator" type="radio" value="@newLineSeparator" name="separator" @onchange="cbgSeparator_onchange"> <label for="@newLineSeparator">New line</label><br>
+            <input id="@customSeparator" type="radio" value="@customSeparator" name="separator" @onchange="cbgSeparator_onchange"> <label for="@customSeparator">Custom</label> <input id="iSeparator" @bind="currentCustomSeparator" type="text" /><br>
+        </CardBody>
+    </CollapsibleCard>
+    <h3>Results:</h3>
+<textarea id="taGeneratedGuids" @bind="guids" rows="10"  class="resize-both w-100"></textarea>
+    <br />
+
+    <button class="btn btn-primary" @onclick="GenerateGuids">Generate</button>
+</div>
+@code {
+    private string guids = "";
+    private int guidCountToGenerate = 5;
+    private string newLineSeparator = "\r\n";
+    private string customSeparator = "custom";
+    private string selectedSeparator = "";
+    private string currentCustomSeparator = "";
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        selectedSeparator = newLineSeparator;
+    }
+
+    private async Task GenerateGuids()
+    {
+        var currentSeparator = GetSelectedSeparator();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < guidCountToGenerate; i++)
+        {
+            sb.Append(Guid.NewGuid().ToString() + currentSeparator);
+        }
+        guids = sb.ToString();
+
+        await Analytics.TrackEvent("GenerateGuids", guidCountToGenerate);
+    }
+
+    private string GetSelectedSeparator()
+    {
+        if (selectedSeparator == newLineSeparator)
+        {
+            return newLineSeparator;
+        }
+        else if (selectedSeparator == customSeparator)
+        {
+            return currentCustomSeparator;
+        }
+
+        return "";
+    }
+
+    private void cbgSeparator_onchange(ChangeEventArgs args)
+    {
+        selectedSeparator = args.Value.ToString();
+    }
+
+}

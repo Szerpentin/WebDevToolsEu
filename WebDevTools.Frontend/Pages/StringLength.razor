@@ -1,0 +1,24 @@
+@page "/stringLength"
+@inject IAnalytics Analytics
+@inject NavigationManager MyNavigationManager
+
+@using Microsoft.AspNetCore.Components.Web.Extensions.Head
+<Meta Property="description" Content="Fundamental tooling for day to day web dev tasks - String length calculator" />
+<Meta Property="keywords" Content="string, length, string length, calculator, string length calculator" />
+<Title Value="WebDevTool.eu - String length calculator"></Title>
+<div class="content-container-div">
+    <h1>String length calculator</h1>
+
+    <h3>Input</h3>
+    <textarea id="taGeneratedGuids" @bind:event="oninput" @bind="textInput" rows="10"  class="resize-both w-100"></textarea>
+    <br />
+    <h3>Length of input: @textInput.Length</h3>
+</div>
+@code {
+    private string textInput = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Analytics.TrackNavigation(MyNavigationManager.Uri);
+    }
+}
