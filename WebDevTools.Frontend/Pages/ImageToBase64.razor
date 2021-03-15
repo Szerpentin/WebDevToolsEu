@@ -1,0 +1,63 @@
+﻿@page "/imageToBase64"
+@using Microsoft.AspNetCore.Components.Web.Extensions.Head
+@using System.IO
+@using BL
+@inject ClipboardService ClipboardService
+
+<Meta Property="description" Content="Fundamental tooling for day to day web dev tasks - Image to Base64" />
+<Meta Property="keywords" Content="image, base64, image to base64" />
+<Title Value="WebDevTool.eu - Image to base64"></Title>
+
+<div class="content-container-div">
+    <h1>Image to base64</h1>
+    <h3>Input (max size: @(maxFileSize/1024/1024) MB)</h3>
+    <InputFile OnChange="@UploadFile" />
+    @if (isLoading)
+    {
+        <p>Uploading and calculating</p>
+    }
+    <br />
+    <br />
+    <h3>Result</h3>
+    <textarea id="taGeneratedGuids" @bind="base64Result" rows="10" class="resize-both w-100"></textarea>
+    <b><labe class=" w-100">@errorMessage</labe></b><br />
+    <button class="btn btn-primary" @onclick="CopyToClipboard">Copy to clipboard</button>
+</div>
+
+@code {
+    private string errorMessage;
+    private bool isLoading = false;
+    private int maxFileSize = 1024 * 1024 * 4;
+    string base64Result = string.Empty;
+
+    async Task UploadFile(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+        errorMessage = string.Empty;
+
+        try
+        {
+            var file = e.GetMultipleFiles(1).FirstOrDefault();
+            base64Result = string.Empty;
+            if (file != null)
+            {
+                using var memoryStream = new MemoryStream();
+                await file.OpenReadStream(maxFileSize).CopyToAsync(memoryStream);
+
+                base64Result = Convert.ToBase64String(memoryStream.ToArray());
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Couldn't parse image to base64! ";
+            errorMessage += ex.Message;
+        }
+
+        isLoading = false;
+    }
+
+    async Task CopyToClipboard()
+    {
+        await ClipboardService.WriteTextAsync(base64Result);
+    }
+}

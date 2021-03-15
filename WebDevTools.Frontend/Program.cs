@@ -1,13 +1,10 @@
 using Blazor.Analytics;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
+using WebDevTools.Frontend.BL;
 
 namespace WebDevTools.Frontend
 {
@@ -20,6 +17,7 @@ namespace WebDevTools.Frontend
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddGoogleAnalytics("G-HEJT06HQG2");
+            builder.Services.AddScoped<ClipboardService>();
             await builder.Build().RunAsync();
         }
     }
