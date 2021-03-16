@@ -1,0 +1,36 @@
+﻿@page "/textReplacer"
+@using System.Text;
+@inject IAnalytics Analytics
+
+@using Microsoft.AspNetCore.Components.Web.Extensions.Head
+<Meta Property="description" Content="Fundamental tooling for day to day web dev tasks - Text replacer" />
+<Meta Property="keywords" Content="replace, text, string, replace string, replace text" />
+<Title Value="WebDevTool.eu - Text replacer"></Title>
+
+
+
+<div class="content-container-div">
+    <h1>TextReplacer</h1>
+
+    <h3>Input</h3>
+<textarea id="tbInput" @bind="inputString" accept-charset="UTF-8" rows="10" class="resize-both w-100"></textarea>
+    <br />
+    <label>What to replace</label> <input id="tbWhatToReplace" @bind="whatToReplaceString" type="text" /><br />
+    <label>Replace with</label> <input id="tbReplaceWith" @bind="replaceWithString" type="text" /><br />
+    <h3>Result</h3>
+<textarea id="tbOutput" @bind="outputString" accept-charset="UTF-8" rows="10" class="resize-both w-100"></textarea>
+    <br />
+    <button id="btReplace" class="btn btn-primary" @onclick="btReplace_onclick">Replace</button>
+</div>
+
+@code {
+    private string inputString = string.Empty;
+    private string outputString = string.Empty;
+    private string whatToReplaceString = string.Empty;
+    private string replaceWithString = string.Empty;
+
+    private void btReplace_onclick()
+    {
+        outputString = inputString.Replace(whatToReplaceString, replaceWithString);
+    }
+}

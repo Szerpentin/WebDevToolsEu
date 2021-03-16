@@ -18,8 +18,12 @@
     <Watch Include="**\*.razor" />
   </ItemGroup>
 
+
   <ItemGroup>
     <Content Update="wwwroot\favicon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\loading.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
