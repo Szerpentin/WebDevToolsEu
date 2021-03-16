@@ -1,3 +1,4 @@
+using Blazor.Analytics;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -7,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebDevTools.Frontend.BL;
 
 namespace WebDevTools.PreRenderer
 {
@@ -17,6 +19,9 @@ namespace WebDevTools.PreRenderer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.AddGoogleAnalytics("G-HEJT06HQG2");
+            services.AddScoped<ClipboardService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
