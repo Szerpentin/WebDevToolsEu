@@ -1,0 +1,100 @@
+﻿@page "/imageResizer"
+@using System.IO
+@using SixLabors.ImageSharp
+@using SixLabors.ImageSharp.Formats
+@using SixLabors.ImageSharp.Processing
+@using BlazorDownloadFile
+@inject IAnalytics Analytics
+@inject IBlazorDownloadFileService BlazorDownloadFileService
+
+@using Microsoft.AspNetCore.Components.Web.Extensions.Head
+<Meta Property="description" Content="Fundamental tooling for day to day web dev tasks - Image resizer" />
+<Meta Property="keywords" Content="image, resize, resizer, image resizer, resize image" />
+<Title Value="WebDevTool.eu - Image resizer"></Title>
+
+<div class="content-container-div">
+    <h1>Image resizer</h1>
+    Resizing by percentage <input id="iResizingPercentage" @bind="resizingAmount" type="number" min="1" max="300" />%<br />
+    <h3>Input (max size: @(maxFileSize/1024/1024) MB)</h3>
+    <InputFile OnChange="@UploadFile" /> <br />
+    @if (isLoading)
+    {
+        <p><b>Uploading and resizing</b></p>
+        <img src="loading.gif" />
+    }
+    <br />
+    <br />
+
+    @if (!isLoading && img != null)
+    {
+        <h2>Result</h2>
+        <p>
+            <label>Original width: </label> <label>@originalWidth</label> <label>px</label><br />
+            <label>Original height: </label> <label>@originalHeight</label> <label>px</label><br />
+            <label>New width: </label> <label>@newWidth</label> <label>px</label><br />
+            <label>New height: </label> <label>@newHeight</label> <label>px</label><br />
+        </p>
+        <button class="btn btn-primary" @onclick="DownloadFile_onclick">Download result</button>
+    }
+
+    <p><b><labe class=" w-100">@errorMessage</labe></b></p><br />
+</div>
+
+@code {
+    private string errorMessage;
+    private bool isLoading = false;
+    private int maxFileSize = 1024 * 1024 * 10;
+    private int resizingAmount = 50;
+    private Image img = null;
+    private IImageFormat format;
+    private string mimeType = string.Empty;
+    private string ext = string.Empty;
+    private string fileName = string.Empty;
+    private int originalWidth = 0;
+    private int originalHeight = 0;
+    private int newWidth = 0;
+    private int newHeight = 0;
+
+
+    async Task UploadFile(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+        errorMessage = string.Empty;
+
+        try
+        {
+            var file = e.GetMultipleFiles(1).FirstOrDefault();
+            ext = System.IO.Path.GetExtension(file.Name);
+            mimeType = file.ContentType;
+            fileName = file.Name;
+
+            using var stream = file.OpenReadStream(maxFileSize);
+            (img, format) = await Image.LoadWithFormatAsync(stream);
+            originalWidth = img.Width;
+            originalHeight = img.Height;
+
+            var resizingPercentage = (double)resizingAmount / 100;
+            newWidth = Convert.ToInt32((double)img.Width * resizingPercentage);
+            newHeight = Convert.ToInt32((double)img.Height * resizingPercentage);
+
+            img.Mutate(x => x.Resize(newWidth, newHeight));
+
+
+
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Couldn't resize image!";
+            errorMessage += ex.Message;
+        }
+
+        isLoading = false;
+    }
+
+    async Task DownloadFile_onclick()
+    {
+        using var memoryStream = new MemoryStream();
+        img.Save(memoryStream, format);
+        await BlazorDownloadFileService.DownloadFile(fileName, memoryStream, mimeType);
+    }
+}
