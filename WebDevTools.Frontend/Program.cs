@@ -15,6 +15,17 @@ namespace WebDevTools.Frontend
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
+
+            if (builder.HostEnvironment.IsDevelopment())
+            {
+                builder.Services.AddScoped(x => new HttpClient() { BaseAddress = new Uri("https://localhost:5002") });
+            }
+            else
+            {
+                builder.Services.AddScoped(x => new HttpClient() { BaseAddress = new Uri("https://api.webdevtools.eu") });
+            }
+
+
             builder.RootComponents.Add<App>("app");
             builder.Services.AddBlazorDownloadFile();
             builder.Services.AddGoogleAnalytics("G-HEJT06HQG2");

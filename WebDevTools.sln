@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{D941CA9D
 		purge.cmd = purge.cmd
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDevTools.Api", "WebDevTools.Api\WebDevTools.Api.csproj", "{EA4C7BB7-592B-487D-9D3F-58826531A183}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDevTools.Common", "WebDevTools.Common\WebDevTools.Common.csproj", "{DA2B7F9A-D5B7-4E67-8A4D-BD885719216E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,14 @@ Global
 		{45F6B999-AFBE-4343-BAF3-1568B78EFED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45F6B999-AFBE-4343-BAF3-1568B78EFED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45F6B999-AFBE-4343-BAF3-1568B78EFED4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA4C7BB7-592B-487D-9D3F-58826531A183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA4C7BB7-592B-487D-9D3F-58826531A183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA4C7BB7-592B-487D-9D3F-58826531A183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA4C7BB7-592B-487D-9D3F-58826531A183}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA2B7F9A-D5B7-4E67-8A4D-BD885719216E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA2B7F9A-D5B7-4E67-8A4D-BD885719216E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA2B7F9A-D5B7-4E67-8A4D-BD885719216E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA2B7F9A-D5B7-4E67-8A4D-BD885719216E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
