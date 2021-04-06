@@ -15,9 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{D941CA9D
 		purge.cmd = purge.cmd
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDevTools.Api", "WebDevTools.Api\WebDevTools.Api.csproj", "{EA4C7BB7-592B-487D-9D3F-58826531A183}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebDevTools.Api", "WebDevTools.Api\WebDevTools.Api.csproj", "{EA4C7BB7-592B-487D-9D3F-58826531A183}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDevTools.Common", "WebDevTools.Common\WebDevTools.Common.csproj", "{DA2B7F9A-D5B7-4E67-8A4D-BD885719216E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebDevTools.Common", "WebDevTools.Common\WebDevTools.Common.csproj", "{DA2B7F9A-D5B7-4E67-8A4D-BD885719216E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

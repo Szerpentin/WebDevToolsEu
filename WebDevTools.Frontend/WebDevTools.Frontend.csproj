@@ -11,6 +11,7 @@
   <ItemGroup>
     <PackageReference Include="Blazor-Analytics" Version="3.3.0" />
     <PackageReference Include="BlazorDownloadFile" Version="2.1.6" />
+    <PackageReference Include="bootstrap" Version="5.0.0-beta2" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web.Extensions" Version="5.0.0-preview9.20513.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.4" PrivateAssets="all" />
@@ -30,6 +31,138 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-grid.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-grid.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.min.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-reboot.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-reboot.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-reboot.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-reboot.min.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.min.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-utilities.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-utilities.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-utilities.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-utilities.min.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.min.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap.min.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap.rtl.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap.rtl.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap.rtl.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\css\bootstrap.rtl.min.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\js\bootstrap.esm.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\js\bootstrap.esm.js.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\js\bootstrap.esm.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\js\bootstrap.esm.min.js.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\js\bootstrap.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\js\bootstrap.js.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\js\bootstrap.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\David\.nuget\packages\bootstrap\5.0.0-beta2\contentFiles\any\any\wwwroot\js\bootstrap.min.js.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\css\bootstrap.purged.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

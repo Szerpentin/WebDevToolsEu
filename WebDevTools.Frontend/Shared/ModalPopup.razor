@@ -1,0 +1,38 @@
+﻿@using Microsoft.AspNetCore.Components
+@inject IJSRuntime JS;
+
+<div id="modalPopupComponent" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @if (!string.IsNullOrEmpty(ModalTitle))
+            {
+                <div class="modal-header">
+                    <h5 class="modal-title">@ModalTitle</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            }
+            <div class="modal-body">
+                @ModalText
+            </div>
+            @if (ShowButtons)
+            {
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@code {
+    [Parameter] public string ModalTitle { get; set; }
+    [Parameter] public string ModalText { get; set; }
+    [Parameter] public bool ShowButtons { get; set; } = false;
+
+    public async Task Show(int forMsAmount)
+    {
+        await JS.InvokeAsync<string>("showModalPopup", forMsAmount);
+    }
+}
